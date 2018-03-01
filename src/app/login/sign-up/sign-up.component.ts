@@ -13,6 +13,7 @@ export class SignUpComponent implements OnInit {
   }
   signUp(){
     console.log(this.user)
+    alert("Success! You can login!");
     this.router.navigate(['/login']);
   }
 }

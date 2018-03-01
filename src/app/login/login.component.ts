@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
 login(){
   console.log(this.user);
   localStorage.setItem('isLoggedin', 'true');
-  alert("Success! You can login now!!!");
-  this.router.navigate(['/pages/show']);
+  this.router.navigate(['/show']);
 }
 }
