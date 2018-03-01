@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './modal/user'
+import { User } from './modal/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +8,17 @@ import { User } from './modal/user'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-   user: User;
-  constructor() { }
+   user: any={};
+  constructor(public router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem('isLoggedin')) {
+      this.router.navigate(['/pages/show']);
+  }
 
   }
 login(){
   console.log(this.user);
+  localStorage.setItem('isLoggedin', 'true');
 }
 }
