@@ -5,7 +5,8 @@ import {PagesComponent} from './pages.component'
 const routes: Routes = [{ path: '', component: PagesComponent,
 children:[
    { path: 'show', loadChildren: './show/show.module#ShowModule'},
-   { path: 'minimalistic', loadChildren: './minimalistic/minimalistic.module#MinimalisticModule'}
+   { path: 'minimalistic', loadChildren: './minimalistic/minimalistic.module#MinimalisticModule'},
+   { path: 'CompanyFormModule', loadChildren: './company-form/company-form.module#CompanyFormModule'}
 ] }];
 
 @NgModule({
