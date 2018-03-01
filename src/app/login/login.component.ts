@@ -13,12 +13,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('isLoggedin')) {
-      this.router.navigate(['/pages/show']);
+      this.router.navigate(['/show']);
   }
 
   }
 login(){
   console.log(this.user);
   localStorage.setItem('isLoggedin', 'true');
+  alert("Success! You can login now!!!");
+  this.router.navigate(['/pages/show']);
 }
 }

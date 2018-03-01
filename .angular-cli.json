@@ -31,6 +31,7 @@
       ],
       "scripts": [
         "../plugins/bower_components/jquery/dist/jquery.min.js",
+        "../node_modules/fingerprintjs2/dist/fingerprint2.min.js",
         "../src/assets/bootstrap/dist/js/tether.min.js",
         "../src/assets/bootstrap/dist/js/bootstrap.min.js",
         "../plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js",
