@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShowComponent } from './show.component';
+import { MinimalisticComponent } from './minimalistic.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 const routes: Routes = [{
 	path: '',
 	data: {
-      title: 'Accordion',
-      urls: [{title: 'Dashboard', url: '/'},{title: 'ngComponent'},{title: 'Accordion'}]
+      title: 'minimalistic',
+      urls: [{title: 'minimalistic', url: '/'},{title: 'minimalistic'},{title: 'minimalistic'}]
     },
-	component: ShowComponent
+	component: MinimalisticComponent
 }];
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    NgbModule.forRoot()
+    NgbModule.forRoot()    
   ],
-  declarations: [ShowComponent]
+  declarations: [MinimalisticComponent]
 })
-export class ShowModule { }
+export class MinimalisticModule { }
