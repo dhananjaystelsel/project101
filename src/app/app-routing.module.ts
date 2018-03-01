@@ -9,7 +9,7 @@ const routes: Routes = [
         redirectTo: '/pages/show',
         pathMatch: 'full'
   }, 
-    { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
+    { path: 'login', loadChildren: './login/login.module#LoginModule'},
     { path: 'pages', loadChildren: './pages/pages.module#PagesModule'}
 
 ];
