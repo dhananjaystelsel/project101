@@ -1781,13 +1781,19 @@ table.dataTable thead .sorting:after {
 .huge {
     font-size: 40px
 }
-
+.white-box1 {
+    background: #353c48;
+    padding: 25px;
+    margin-bottom: 15px
+}
 .white-box {
     background: #fff;
     padding: 25px;
     margin-bottom: 15px
 }
-
+.white-box1 h3{
+    color:#d0c8c8f7;
+}
 .white-box .box-title {
     margin: 0 0 12px;
     font-weight: 500;

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule }   from '@angular/forms';
 
+import { AuthGuard } from './shared/guard/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent],
@@ -16,7 +18,7 @@ import { FormsModule }   from '@angular/forms';
     NgbModule.forRoot(),
     FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,15 +2,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
-    { path: '',
-        redirectTo: '/pages',
-        pathMatch: 'full'
+    {
+        path: 'pages', 
+        loadChildren: './pages/pages.module#PagesModule',
+        canActivate: [AuthGuard]
   }, 
     { path: 'login', loadChildren: './login/login.module#LoginModule'},
-    { path: 'pages', loadChildren: './pages/pages.module#PagesModule'}
+    
+
 
 ];
 
