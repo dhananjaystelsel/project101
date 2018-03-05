@@ -5,13 +5,25 @@
               <h3 class="box-title m-b-20">Sign In</h3>
               <div class="form-group ">
                   <div class="col-xs-12">
-                      <input class="form-control" type="email" required="" placeholder="Email Id" name='userEmail'#userEmail='ngModel' [(ngModel)]="user.email">
-                  </div>
+                      <input class="form-control" type="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"placeholder="Email Id" name='userEmail'#userEmail='ngModel' [(ngModel)]="user.email">
+                      <div [hidden]="userEmail.valid || userEmail.pristine"
+                      class="text-danger">
+                      <div [hidden]="!userEmail.hasError('required')">Email is required</div>
+               <div [hidden]="!userEmail.hasError('pattern')">Email format should be 
+                  <small><b>joe@abc.com</b></small>
+               </div>
+                 </div>
+                    </div>
               </div>
               <div class="form-group">
                   <div class="col-xs-12">
-                      <input class="form-control" type="password" required="" placeholder="Password" name='userPwd'#userPwd='ngModel'[(ngModel)]="user.password">
-                  </div>
+                      <input class="form-control" type="password" required placeholder="Password" name='userPwd'#userPwd='ngModel'[(ngModel)]="user.password">
+                      <div [hidden]="userPwd.valid ||userPwd.pristine"
+                      class="text-danger">
+                      <div [hidden]="!userPwd.hasError('required')">Password is required</div>
+           
+                 </div>
+                    </div>
               </div>
               <div class="form-group">
                   <div class="col-md-12">
@@ -23,7 +35,7 @@
               </div>
               <div class="form-group text-center m-t-20">
                   <div class="col-xs-12">
-                    <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+                    <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit"[disabled]="!loginform.form.valid">Log In</button>
                   </div>
               </div>
               <div class="row">
