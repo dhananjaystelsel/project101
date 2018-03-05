@@ -2,7 +2,7 @@ export class User{
     fname:string;
     email:string;
     password:string;
-    confirmpwd:string;
+    confirmPassword:string;
     dob:Date;
     lname:string;
 }

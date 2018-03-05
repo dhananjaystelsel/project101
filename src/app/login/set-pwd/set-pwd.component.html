@@ -1,0 +1,59 @@
+<section id="wrapper" class="login-register">
+  <div class="login-box">
+    <div class="white-box">
+      <form class="form-horizontal" name="setPwdform" #setPwdform='ngForm'  (ngSubmit)="resetPwd()">
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <h3>Set Password</h3>
+            <p class="text-muted">Enter New Password!!! </p>
+          </div>
+        </div>
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <input class="form-control" type="password" required  autofocus placeholder="Password" name='userPwd' #userPwd="ngModel"
+              [(ngModel)]="user.password">
+
+             <div [hidden]="userPwd.valid || userPwd.pristine"
+             class="text-danger">
+          Password is required
+        </div> 
+
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <input class="form-control" type="password"  placeholder="Confirm Password" name='userConfirmPwd' #userConfirmPwd="ngModel"
+              [(ngModel)]="user.confirmPassword"   required>
+             <div [hidden]="userConfirmPwd.valid || userConfirmPwd.pristine"
+              class="text-danger">
+              Passwords did not match
+         </div>
+            
+          </div>
+        </div>
+        <div class="form-group from-actions text-center m-t-20">
+          <div class="col-xs-12">
+            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit" [disabled]="!setPwdform.form.valid">Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</section>
+<div *ngIf="alerttopright == true">
+<div id='alert' class="myadmin-alert alert-info myadmin-alert-top-right" style="display: block;">
+  <a href='javascript:void(0);' class="closed" onclick="$('#alert').hide(); return false;"> &times;</a>
+  <h4>Error!</h4>
+  <b></b> Please Enter valid password
+</div>
+</div>
+<div *ngIf="alerttop == true">
+  <div id='alertsuccess' class="myadmin-alert alert-info myadmin-alert-top-right" style="display: block;">
+    <a href='javascript:void(0);' class="closed" onclick="$('#alertsuccess').hide(); return false;"> &times;</a>
+    <h4>Success!</h4>
+    <b>Password updated Successfully!!</b>You can Login!!
+    <a [routerLink]="['/login']"class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light">Log In</a>
+
+  </div>
+  </div>
