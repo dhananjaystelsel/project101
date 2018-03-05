@@ -6,7 +6,10 @@ const routes: Routes = [{ path: '', component: PagesComponent,
 children:[
    { path: 'show', loadChildren: './show/show.module#ShowModule'},
    { path: 'minimalistic', loadChildren: './minimalistic/minimalistic.module#MinimalisticModule'},
-   { path: 'CompanyFormModule', loadChildren: './company-form/company-form.module#CompanyFormModule'}
+   { path: 'CompanyFormModule', loadChildren: './company-form/company-form.module#CompanyFormModule'},
+   { path: 'PlanSuperAdminModule', loadChildren: './plan-super-admin/plan-super-admin.module#PlanSuperAdminModule'},
+   { path: 'progressbar', loadChildren: './progressbar/progressbar.module#progressbarModule' },
+
 ] }];
 
 @NgModule({

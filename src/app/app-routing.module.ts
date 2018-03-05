@@ -11,10 +11,12 @@ const routes: Routes = [
         canActivate: [AuthGuard]
   }, 
     { path: 'login', loadChildren: './login/login.module#LoginModule'},
+    { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes), NgbModule.forRoot()],
+    imports: [RouterModule.forRoot(routes), 
+        NgbModule.forRoot()],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

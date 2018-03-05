@@ -1,12 +1,17 @@
+import * as $ from 'jquery';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule }   from '@angular/forms';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -15,7 +20,7 @@ import { AuthGuard } from './shared/guard/auth.guard';
      imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule.forRoot(),
+  //  NgbModule,
     FormsModule
   ],
   providers: [AuthGuard],

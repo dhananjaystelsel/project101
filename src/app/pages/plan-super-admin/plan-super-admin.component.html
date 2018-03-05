@@ -1,0 +1,42 @@
+<ngb-tabset #t="ngbTabset">
+  <ngb-tab id="tab-selectbyid1" title="plan 1">
+    <ng-template ngbTabContent>
+      <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title m-b-0">Default Basic Forms</h3>
+                <p class="text-muted m-b-30 font-13"> All bootstrap element classies </p>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-md-12">Default Text <span class="help"> e.g. "George deo"</span></label>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" value="George deo...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12" for="example-email">Email <span class="help"> e.g. "example@gmail.com"</span></label>
+                    <div class="col-md-12">
+                        <input type="email" id="example-email" name="example-email" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="tab-selectbyid2" title="plan 2">
+    <ng-template ngbTabContent>
+      <p>p2</p>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="tab-selectbyid3" title="plan 3">
+    <ng-template ngbTabContent>
+      <p>p3</p>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+
+<!-- <p>
+  <button class="btn btn-outline-primary" (click)="t.select('tab-selectbyid2')">Selected tab with "tab-selectbyid2" id</button>
+</p> -->
