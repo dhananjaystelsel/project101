@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {NgbPanelChangeEvent} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-company-form',
   templateUrl: './company-form.component.html',
   styleUrls: ['./company-form.component.css']
 })
-export class CompanyFormComponent implements OnInit {
+export class CompanyFormComponent  {
 
   data:any= {};
   constructor() { }
