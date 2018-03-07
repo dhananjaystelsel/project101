@@ -8,10 +8,13 @@ import { Offer} from '../../modal/offer'
 })
 export class OfferComponent implements OnInit {
  offer=Offer; 
+ dtOptions: DataTables.Settings = {};
   constructor() { }
 
   ngOnInit() {
- 
+    this.dtOptions = {
+      pagingType: 'full_numbers'
+    };
   }
   addOffer(){
  console.log(this.offer);

@@ -2,6 +2,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@angular/*": [
+        "../node_modules/@angular/*"
+      ]
+    },
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",

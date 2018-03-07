@@ -53,11 +53,11 @@
         <div class="col-md-12">
           <div class="checkbox checkbox-success">
             <div class='col-md-2'>
-              <input id="checkbox33" type="checkbox"  #nonactivOffer='ngModel' (change)="activeOffer($event)"name='activeOffer' [(ngModel)]="offer.status.active">
+              <input id="checkbox33" type="checkbox" #nonactivOffer='ngModel' (change)="activeOffer($event)" name='activeOffer' [(ngModel)]="offer.status.active">
               <label for="checkbox33">Active !</label>
             </div>
             <div class='col-md-2'>
-              <input id="checkbox34" type="checkbox" #nonactivOffer='ngModel' (change)="nonActiveOffer($event)"name='nonactiveOffer' [(ngModel)]="offer.status.nonActive">
+              <input id="checkbox34" type="checkbox" #nonactivOffer='ngModel' (change)="nonActiveOffer($event)" name='nonactiveOffer' [(ngModel)]="offer.status.nonActive">
               <label for="checkbox34">Non Active !</label>
             </div>
           </div>
@@ -106,5 +106,84 @@
       <button class="pull-right btn  btn-warning btn-rounded">Re-check </button>
     </div>
 
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">Customer with api</div>
+  <div class="panel-wrapper collapse in" aria-expanded="true">
+    <div class="panel-body">
+
+        <table datatable [dtOptions]="dtOptions" class="row-border hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Foo</td>
+                <td>Bar</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Someone</td>
+                <td>Youknow</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Iamout</td>
+                <td>Ofinspiration</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Yoda</td>
+                <td>Skywalker</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Patrick</td>
+                <td>Dupont</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Barack</td>
+                <td>Obama</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>François</td>
+                <td>Holland</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Michel</td>
+                <td>Popo</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>Chuck</td>
+                <td>Norris</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Simon</td>
+                <td>Robin</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>Louis</td>
+                <td>Lin</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>Zelda</td>
+                <td>Link</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
   </div>
 </div>
