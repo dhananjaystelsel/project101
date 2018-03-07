@@ -4456,8 +4456,8 @@ table.focus-on tbody tr.focused th {
 }
 
 .select2-container-multi .select2-choices {
-    border: 1px solid #border!important;
-    box-shadow: none!important;
+    border: 1px solid #border !important;
+    box-shadow: none !important;
     background-image: none!important;
     border-radius: 0!important;
     min-height: 38px

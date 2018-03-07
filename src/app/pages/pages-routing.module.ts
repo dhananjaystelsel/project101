@@ -9,6 +9,7 @@ children:[
    { path: 'CompanyFormModule', loadChildren: './company-form/company-form.module#CompanyFormModule'},
    { path: 'PlanSuperAdminModule', loadChildren: './plan-super-admin/plan-super-admin.module#PlanSuperAdminModule'},
    { path: 'progressbar', loadChildren: './progressbar/progressbar.module#progressbarModule' },
+   { path: 'OfferModule', loadChildren:'./offer/offer.module#OfferModule'}
 
 ] }];
 

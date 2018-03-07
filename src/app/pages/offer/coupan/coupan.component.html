@@ -1,0 +1,137 @@
+<div class="panel panel-info">
+  <div class="panel-heading">Coupan</div>
+  <div class="panel-wrapper collapse in" aria-expanded="true">
+    <div class="panel-body">
+      <form name="coupanForm" #coupanForm='ngForm' (ngSubmit)="addCoupan()">
+        <div class="form-body">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group">
+                <label class="control-label"> Name</label>
+                <input type="text" id="coupanName" class="form-control" name='coupanName' #coupanName='ngModel' [(ngModel)]="coupan.name"
+                  placeholder="Enter Name">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">Coupan Code</label>
+                <input type="text" id="coupanCode" class="form-control" name='coupanCode' #coupanCode='ngModel' [(ngModel)]="coupan.code"
+                  placeholder="Enter Coupan Code">
+              </div>
+            </div>
+            <!--/span-->
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">From Date</label>
+                <input type="date" id="fromDate" class="form-control" name='fromDate' #fromDate='ngModel' [(ngModel)]="coupan.fromDate" placeholder="From Date">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">To Date</label>
+                <input type="date" id="ToDate" class="form-control" name='toDate' #toDate='ngModel' [(ngModel)]="coupan.toDate" placeholder="To Date">
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">Discount</label>
+                <input type="text" id="discount" class="form-control" name='discount' #discount='ngModel' [(ngModel)]="coupan.discount" placeholder="Enter Discount">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-actions m-t-5">
+                <button class='btn btn-success pull-right btn-rounded m-t-20' type="submit">ADD </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <form name="coupanSearchForm" #coupanSearchForm='ngForm' (ngSubmit)="searchCoupan()">
+        <div class="form-body">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="checkbox checkbox-success p-t-20">
+                <input id="checkbox33" type="checkbox">
+                <label for="checkbox33">Active !</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="checkbox checkbox-info p-t-20">
+                <input id="checkbox34" type="checkbox">
+                <label for="checkbox34">Non Active !</label>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">From Date</label>
+                <input type="date" class="form-control" name='fromDate' #fromDate='ngModel' [(ngModel)]="coupan.fromDate" placeholder="From Date">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">To Date</label>
+                <input type="date" class="form-control" name='toDate' #toDate='ngModel' [(ngModel)]="coupan.toDate" placeholder="To Date">
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-actions m-t-5">
+                <button class='btn btn-info  btn-rounded m-t-20' type="submit">Search </button>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-actions m-t-5">
+                <button class='btn btn-danger  btn-rounded m-t-20' (click)='resetSearchCoupan()'>Cancle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table  table-bordered">
+                <thead>
+                  <tr class="table-info">
+                    <th>Sr.No</th>
+                    <th>Name</th>
+                    <th>Coupan Code</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Discount</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                    <th>Status </th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--       <tr *ngFor='let i of offer;let i=index;'>
+                  <td>{{i}}</td>
+                  <td>{{offer.name}}</td>
+                  <td>{{offer.fromDate}}</td>
+                  <td>{{offer.toDate}}</td>
+                  <td>{{offer.discount}}</td>
+                  <td>Edit</td>
+                  <td>Delete</td>
+                  <td>
+                   <ui-switch [(ngModel)]="enable"(change)="onChange($event)" size="small"></ui-switch>
+                  </td>
+
+                
+                </tr>-->
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button class="pull-right btn  btn-warning btn-rounded">Re-check </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

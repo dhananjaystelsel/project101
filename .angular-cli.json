@@ -18,14 +18,17 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
+      "styles": [    
         "styles.css",
         "../src/assets/bootstrap/dist/css/bootstrap.min.css",
         "../plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css",
+        "../plugins/bower_components/bootstrap-switch/bootstrap-switch.min.css",
+        "../plugins/bower_components/switchery/dist/switchery.min.css",
+        "../plugins/bower_components/sweetalert/sweetalert.css",
         "../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css",
         "../src/assets/css/animate.css",
         "../src/assets/css/spinners.css",
-        "../src/assets/css/style.css",
+        "../src/assets/css/style.css",        
         "../src/assets/css/colors/blue.css",
         "../node_modules/font-awesome/css/font-awesome.min.css"
       ],
@@ -38,12 +41,16 @@
         "../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js",
         "../plugins/bower_components/footable/js/footable.all.min.js",
         "../plugins/bower_components/bootstrap-select/bootstrap-select.min.js",
+        "../plugins/bower_components/switchery/dist/switchery.min.js",
         "../plugins/bower_components/styleswitcher/jQuery.style.switcher.js",
         "../src/assets/js/jquery.slimscroll.js",
         "../src/assets/js/waves.js",
+        "../plugins/bower_components/sweetalert/sweetalert.min.js",
+         "../plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js",
         "../src/assets/js/custom.min.js",
         "../src/assets/js/toastr.js",
         "../plugins/bower_components/toast-master/js/jquery.toast.js"
+     
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

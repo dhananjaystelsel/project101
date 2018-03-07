@@ -1,0 +1,110 @@
+<div class="panel panel-info">
+  <div class="panel-heading">Offer</div>
+  <div class="panel-wrapper collapse in" aria-expanded="true">
+    <div class="panel-body">
+      <form name="offerForm" #offerForm='ngForm' (ngSubmit)="addOffer()">
+        <div class="form-body">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group">
+                <label class="control-label"> Name</label>
+                <input type="text" id="offerName" class="form-control" name='offerName' #offerName='ngModel' [(ngModel)]="offer.name" placeholder="Enter Name">
+              </div>
+            </div>
+            <!--/span-->
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">From Date</label>
+                <input type="date" id="fromDate" class="form-control" name='fromDate' #fromDate='ngModel' [(ngModel)]="offer.fromDate" placeholder="From Date">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">To Date</label>
+                <input type="date" id="ToDate" class="form-control" name='toDate' #toDate='ngModel' [(ngModel)]="offer.toDate" placeholder="To Date">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">Plan</label>
+                <select class="form-control " id="inlineFormCustomSelect" name='plan' #plan='ngModel' [(ngModel)]="offer.plan">
+                  <option selected="">Select Plan</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group ">
+                <label class="control-label">Discount</label>
+                <input type="text" id="discount" class="form-control" name='discount' #discount='ngModel' [(ngModel)]="offer.discount" placeholder="Enter Discount">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-actions m-t-5">
+                <button class='btn btn-success pull-right btn-rounded m-t-20' type="submit">ADD </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="checkbox checkbox-success">
+            <div class='col-md-2'>
+              <input id="checkbox33" type="checkbox"  #nonactivOffer='ngModel' (change)="activeOffer($event)"name='activeOffer' [(ngModel)]="offer.status.active">
+              <label for="checkbox33">Active !</label>
+            </div>
+            <div class='col-md-2'>
+              <input id="checkbox34" type="checkbox" #nonactivOffer='ngModel' (change)="nonActiveOffer($event)"name='nonactiveOffer' [(ngModel)]="offer.status.nonActive">
+              <label for="checkbox34">Non Active !</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row m-t-20">
+        <div class="col-md-12">
+          <table class="table  table-bordered">
+            <thead>
+              <tr class="table-info">
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>Plan</th>
+                <th>Discount</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>Status
+
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <!--      <tr *ngFor='let i of offer;let i=index;'>
+                  <td>{{i}}</td>
+                  <td>{{offer.name}}</td>
+                  <td>{{offer.fromDate}}</td>
+                  <td>{{offer.toDate}}</td>
+                  <td>{{offer.discount}}</td>
+                  <td>Edit</td>
+                  <td>Delete</td>
+                  <td>
+                   <ui-switch [(ngModel)]="enable"(change)="onChange($event)" size="small"></ui-switch>
+                  </td>
+
+                
+                </tr>-->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <button class="pull-right btn  btn-warning btn-rounded">Re-check </button>
+    </div>
+
+  </div>
+</div>
