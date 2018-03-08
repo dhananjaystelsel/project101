@@ -66,3 +66,53 @@
       </div>
   </div>
 </div>
+<div class="row">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="white-box">
+
+
+                <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"></table> -->
+
+<table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of persons">
+        <td>{{ person.id }}</td>
+        <td>{{ person.Name }}</td>
+        <td>{{ person.Phone }}</td>
+        <td><button (click)="open(content,person)">+</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div></div></div>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+                <input type="text" [(ngModel)]="selectUser.Name" name="Name">
+                <input type="text" [(ngModel)]="selectUser.Phone" name="Phone">
+                <button (click)="saveRec()"> - </button>
+                
+          </p>
+      
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+        </div>
+      </ng-template>
+      <hr>
+      
+      <pre>{{closeResult}}</pre>
