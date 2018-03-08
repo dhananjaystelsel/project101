@@ -6,6 +6,9 @@ import { DataTablesModule } from 'angular-datatables';
 import { OfferRoutingModule } from './offer-routing.module';
 import { OfferComponent } from './offer.component';
 import { CoupanComponent } from './coupan/coupan.component';
+import { HttpClientModule } from '@angular/common/http';
+ import { HttpModule } from '@angular/http';
+import { ApiService } from "../../services/api.services";
 
 @NgModule({
   imports: [
@@ -13,8 +16,10 @@ import { CoupanComponent } from './coupan/coupan.component';
     OfferRoutingModule,
     FormsModule,
     UiSwitchModule,
-    DataTablesModule
+    DataTablesModule,
+    HttpClientModule,HttpModule
   ],
-  declarations: [OfferComponent, CoupanComponent]
+  declarations: [OfferComponent, CoupanComponent],
+  providers:[ApiService]
 })
 export class OfferModule { }
