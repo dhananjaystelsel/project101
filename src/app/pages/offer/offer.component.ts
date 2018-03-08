@@ -3,7 +3,7 @@ import { Offer} from '../../modal/offer'
 import { HttpClient, HttpResponse,HttpHeaders } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
-
+import * as conf from '../../config';
 import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -44,7 +44,7 @@ export class OfferComponent implements OnInit {
       ajax: (dataTablesParameters: any, callback) => {
         that.http
           .post<any>(
-            'http://192.168.1.4:3000/dt',
+            conf.data.api+'/dt',
             dataTablesParameters, {}
           ).subscribe(resp => {
             that.persons = resp;
@@ -72,7 +72,7 @@ show(event,content){
 }
 edit(){
   console.log(this.editPersons);
- this.http.post('http://192.168.1.4:3000/editUser',this.editPersons,httpOptions)
+ this.http.post(conf.data.api+'/editUser',this.editPersons,httpOptions)
   .subscribe(result=>console.log(result) , err => console.log(err),
   () =>{ console.log('Request Completed');$('#closeModal').click()});
 }
