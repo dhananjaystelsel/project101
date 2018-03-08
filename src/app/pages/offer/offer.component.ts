@@ -72,12 +72,12 @@ show(event,content){
 }
 edit(){
   console.log(this.editPersons);
- this.http.post('http://localhost:3000/editUser',this.editPersons,{
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })}).subscribe(result=>console.log(result));
- 
+ this.http.post('http://192.168.1.4:3000/editUser',this.editPersons,httpOptions)
+  .subscribe(result=>console.log(result) , err => console.log(err),
+  () =>{ console.log('Request Completed');$('#closeModal').click()});
 }
 
-  
+ 
   addOffer(){
  console.log(this.offer);
   }

@@ -18,7 +18,7 @@ export class ApiService {
 		   .catch(this.handleErrorObservable);
     }
     addBookWithObservable(person:Person): Observable<Person> {
-	let headers = new Headers({ 'Content-Type': 'application/json' });
+	let headers = new Headers({ 'Content-Type': 'application/json','Access-Control-Allow-Headers':'*' });
         let options = new RequestOptions({ headers: headers });
         return this.http.post(this.url, person, options)
                    .map(this.extractData)
