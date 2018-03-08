@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MinimalisticComponent } from './minimalistic.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DataTablesModule } from 'angular-datatables';
+import { FormsModule }   from '@angular/forms';
 const routes: Routes = [{
 	path: '',
 	data: {
@@ -14,6 +16,8 @@ const routes: Routes = [{
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    DataTablesModule,
     RouterModule.forChild(routes),
     NgbModule.forRoot()    
   ],
