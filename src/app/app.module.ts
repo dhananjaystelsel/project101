@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ApiService} from '../app/services/api.services'
 
@@ -20,10 +21,7 @@ import { ApiService} from '../app/services/api.services'
     AppComponent],
    imports: [
     BrowserModule,
-    AppRoutingModule,  
- 
-   
-  //  NgbModule,
+    AppRoutingModule,
     FormsModule
   ],
   providers: [AuthGuard],
