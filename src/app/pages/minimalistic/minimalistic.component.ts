@@ -1,30 +1,47 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild ,OnDestroy} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DataTableDirective } from 'angular-datatables';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-
+import * as conf from '../../config';
 import { catchError, map, tap } from 'rxjs/operators';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { SpeechRecognitionService } from '../../speech-recognition.service';
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 
+    'Content-Type': 'application/json'
+  })
 };
+
+
+
 @Component({
   selector: 'app-minimalistic',
   templateUrl: './minimalistic.component.html',
   styleUrls: ['./minimalistic.component.css']
 })
-export class MinimalisticComponent  implements OnInit, AfterViewInit  {
+export class MinimalisticComponent  implements OnInit, AfterViewInit , OnDestroy  {
   @ViewChild(DataTableDirective)
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
   persons: any;
   closeResult: string;
+  dtData:any ={"draw": 13, "columns": [{"data": "id", "name": "", "searchable": true, "orderable": true, "search": {"value": "", "regex": false } }, {"data": "Name", "name": "", "searchable": true, "orderable": true, "search": {"value": "", "regex": false } }, {"data": "Phone", "name": "", "searchable": true, "orderable": true, "search": {"value": "", "regex": false } } ], "order": [{"column": 0, "dir": "asc"} ], "start": 0, "length": 10, "search": {"value": "", "regex": false } };
+  //voice start
+  showSearchButton: boolean;
+  speechData: string;
+  //voice end
+
   // We use this trigger because fetching the list of persons can be quite long,
   // thus we ensure the data is fetched before rendering
   
-  constructor(private http: HttpClient,private modalService: NgbModal) { 
-   this.http.post<any>('http://localhost:3000/editUser', {
+  constructor(private http: HttpClient,private modalService: NgbModal,private speechRecognitionService: SpeechRecognitionService) { 
+      //voice start
+      console.log(conf.data.api);
+  this.showSearchButton = true;
+  this.speechData = "";
+  //voice end
+   this.http.post<any>(conf.data.api+'/editUser', {
       "Name":"ANJAYxcvcvcv",
       "Phone":"1234567890",
       "id":1
@@ -35,11 +52,46 @@ export class MinimalisticComponent  implements OnInit, AfterViewInit  {
   dd:any;
   saveRec(){
     
-    this.http.post<any>('http://localhost:3000/editUser', this.selectUser, httpOptions)
+    this.http.post<any>(conf.data.api+'/editUser', this.selectUser, httpOptions)
     .subscribe(heroes => {
       this.dd.dismiss('close');
     });
   }
+  //voice  start
+  ngOnDestroy() {
+    this.speechRecognitionService.DestroySpeechObject();
+}
+activateSpeechSearchMovie(): void {
+  this.showSearchButton = false;
+
+  this.speechRecognitionService.record()
+      .subscribe(
+      //listener
+      (value) => {
+          this.speechData = value;
+          this.dtData.search.value=value;
+          this.http.post<any>(conf.data.api+'/dt', this.dtData , httpOptions).subscribe(heroes => {
+            this.persons=heroes.data;
+          });
+            
+          console.log(value);
+      },
+      //errror
+      (err) => {
+          console.log(err);
+          if (err.error == "no-speech") {
+              console.log("--restatring service--");
+              this.activateSpeechSearchMovie();
+          }
+      },
+      //completion
+      () => {
+          this.showSearchButton = true;
+          console.log("--complete--");
+          this.activateSpeechSearchMovie();
+      });
+}
+//voice end
   open(content,data) {
     this.selectUser=data;
     
@@ -49,7 +101,7 @@ export class MinimalisticComponent  implements OnInit, AfterViewInit  {
     console.log(data);
    
     data.Name+='_EDIT';
-    this.http.post<any>('http://localhost:3000/editUser', data, httpOptions)
+    this.http.post<any>(conf.data.api+'/editUser', data, httpOptions)
     .subscribe(heroes => {
       console.log(heroes);
     });
@@ -94,7 +146,7 @@ export class MinimalisticComponent  implements OnInit, AfterViewInit  {
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,
-              data: []
+              data:[]
             });
           });
       }

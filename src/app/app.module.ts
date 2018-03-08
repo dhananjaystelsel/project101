@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+//import { SpeechRecognitionService } from './speech-recognition.service';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
      imports: [
     BrowserModule,
     AppRoutingModule,
-  //  NgbModule,
+    
     FormsModule
   ],
   providers: [AuthGuard],

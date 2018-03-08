@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataTablesModule } from 'angular-datatables';
 import { FormsModule }   from '@angular/forms';
+import { SpeechRecognitionService } from '../../speech-recognition.service';
 const routes: Routes = [{
 	path: '',
 	data: {
@@ -21,6 +22,7 @@ const routes: Routes = [{
     RouterModule.forChild(routes),
     NgbModule.forRoot()    
   ],
+  providers: [SpeechRecognitionService],
   declarations: [MinimalisticComponent]
 })
 export class MinimalisticModule { }

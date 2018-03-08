@@ -69,8 +69,13 @@
 <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12">
             <div class="white-box">
-
-
+<!-- 
+                    <input type="text" class="form-control border-input" name="txtSpeechSearchMovieName" id="txtSpeechSearchMovieName" value=""
+                    placeholder="Click below button and then say something!!!" [(ngModel)]="speechData"> -->
+                    <button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearchMovie" id="btnActivateSpeechSearchMovie" (click)="activateSpeechSearchMovie()"
+                                [disabled]="!showSearchButton">
+                            Enable Speech Search
+                        </button>
                 <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"></table> -->
 
 <table datatable [dtOptions]="dtOptions" class="row-border hover">
@@ -113,6 +118,7 @@
           <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
         </div>
       </ng-template>
+
       <hr>
       
       <pre>{{closeResult}}</pre>
