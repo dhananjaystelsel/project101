@@ -77,9 +77,20 @@
                             Enable Speech Search
                         </button>
                 <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"></table> -->
-
+                <form (submit)="filterById()">
+                        <label>
+                          Min
+                          <input type="number" name="min" id="min" [(ngModel)]="min" />
+                        </label>
+                        <label>
+                          Max
+                          <input type="number" name="max" id="max" [(ngModel)]="max" />
+                        </label>
+                        <button class="btn btn-primary" type="submit">Filter by ID</button>
+                      </form>
+                      <br />
 <table datatable [dtOptions]="dtOptions" class="row-border hover">
-    <thead>
+    <!-- <thead>
       <tr>
         <th>ID</th>
         <th>First name</th>
@@ -93,7 +104,7 @@
         <td>{{ person.Phone }}</td>
         <td><button (click)="open(content,person)">+</button></td>
       </tr>
-    </tbody>
+    </tbody> -->
   </table>
 
 </div></div></div>

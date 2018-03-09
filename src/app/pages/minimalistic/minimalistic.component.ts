@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild ,OnDestroy} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DataTableDirective } from 'angular-datatables';
+
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import * as conf from '../../config';
@@ -26,6 +27,8 @@ export class MinimalisticComponent  implements OnInit, AfterViewInit , OnDestroy
   dtOptions: DataTables.Settings = {};
   persons: any;
   closeResult: string;
+  min: number;
+  max: number;
   dtData:any ={"draw": 13, "columns": [{"data": "id", "name": "", "searchable": true, "orderable": true, "search": {"value": "", "regex": false } }, {"data": "Name", "name": "", "searchable": true, "orderable": true, "search": {"value": "", "regex": false } }, {"data": "Phone", "name": "", "searchable": true, "orderable": true, "search": {"value": "", "regex": false } } ], "order": [{"column": 0, "dir": "asc"} ], "start": 0, "length": 10, "search": {"value": "", "regex": false } };
   //voice start
   showSearchButton: boolean;
@@ -59,6 +62,7 @@ export class MinimalisticComponent  implements OnInit, AfterViewInit , OnDestroy
   }
   //voice  start
   ngOnDestroy() {
+    $.fn['dataTable'].ext.search.pop();
     this.speechRecognitionService.DestroySpeechObject();
 }
 activateSpeechSearchMovie(): void {
@@ -91,6 +95,12 @@ activateSpeechSearchMovie(): void {
           this.activateSpeechSearchMovie();
       });
 }
+filterById(): void {
+  this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+    console.log(dtInstance)
+    dtInstance.draw();
+  });
+}
 //voice end
   open(content,data) {
     this.selectUser=data;
@@ -119,7 +129,17 @@ activateSpeechSearchMovie(): void {
   ngAfterViewInit(): void {}
   ngOnInit(): void {
     const that = this;
-
+    $.fn['dataTable'].ext.search.push((settings, data, dataIndex) => {
+      console.log(settings, data, dataIndex);
+      const id = parseFloat(data[0]) || 0; // use data for the id column
+      if ((isNaN(this.min) && isNaN(this.max)) ||
+        (isNaN(this.min) && id <= this.max) ||
+        (this.min <= id && isNaN(this.max)) ||
+        (this.min <= id && id <= this.max)) {
+        return true;
+      }
+      return false;
+    });
     this.dtOptions = {
       pagingType: 'full_numbers',
       //pageLength: 2,
@@ -138,7 +158,7 @@ activateSpeechSearchMovie(): void {
       ajax: (dataTablesParameters: any, callback) => {
         that.http
           .post<any>(
-            'http://192.168.1.4:3000/dt',
+            conf.data.api+'/dt',
             dataTablesParameters, {}
           ).subscribe(resp => {
             that.persons = resp.data;
@@ -146,7 +166,7 @@ activateSpeechSearchMovie(): void {
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,
-              data:[]
+              data:resp.data
             });
           });
       }
